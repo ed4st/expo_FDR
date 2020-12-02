@@ -1,0 +1,124 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{xspace}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{framed}
+
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\newcommand{\X}{\mathbb{X}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\Y}{\mathbf{Y}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\xbarn}{\bar{x}_n}
+\newcommand{\ybarn}{\bar{y}_n}
+\newcommand{\paren}[1]{\left( #1 \right)}
+\newcommand{\llaves}[1]{\left\lbrace #1 \right\rbrace}
+\newcommand{\barra}{\,\vert\,}
+\newcommand{\mP}{\mathbb{P}}
+\newcommand{\mE}{\mathbb{E}}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mJ}{\mathbf{J}}
+\newcommand{\mX}{\mathbf{X}}
+\newcommand{\mS}{\mathbf{S}}
+\newcommand{\mA}{\mathbf{A}}
+\newcommand{\unos}{\boldsymbol{1}}
+\newcommand{\xbarnv}{\bar{\mathbf{x}}_n}
+\newcommand{\abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\muv}{\boldsymbol{\mu}}
+\newcommand{\mcov}{\boldsymbol{\Sigma}}
+\newcommand{\vbet}{\boldsymbol{\beta}}
+\newcommand{\veps}{\boldsymbol{\epsilon}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcR}{\mathcal{R}}
+\newcommand{\mcN}{\mathcal{N}}
+
+\newcommand{\ceros}{\boldsymbol{0}}
+\newcommand{\mH}{\mathbf{H}}
+\newcommand{\ve}{\mathbf{e}}
+\newcommand{\avec}{\mathbf{a}}
+\newcommand{\res}{\textbf{RESPUESTA}\\}
+
+\newcommand{\defi}[3]{\textbf{Definición:#3}}
+\newcommand{\fin}{$\blacksquare.$}
+\newcommand{\finf}{\blacksquare.}
+\newcommand{\tr}{\text{tr}}
+\newcommand*{\temp}{\multicolumn{1}{r|}{}}
+
+\newcommand{\grstep}[2][\relax]{%
+   \ensuremath{\mathrel{
+       {\mathop{\longrightarrow}\limits^{#2\mathstrut}_{
+                                     \begin{subarray}{l} #1 \end{subarray}}}}}}
+\newcommand{\swap}{\leftrightarrow}
+
+\newcommand{\gen}{\text{gen}}
+\newtheorem{thmt}{Teorema:}
+\newtheorem{thmd}{Definición:}
+\newtheorem{thml}{Lema:}
+\newtheorem{thme}{Ejemplo:}
+
+
+\begin{document}
+\begin{table}[ht]
+\centering
+\begin{tabular}{c}
+\textbf{Comparaciones múltiples desde la perspectiva de ciencia de datos y}\\
+\textbf{su relación con el False Discovery Rate.}\\
+\textit{Reporte FDR: Enrique Santibáñez Cortés}
+\end{tabular}
+\end{table}
+
+\section{diapositiva 1.}
+En este trabajo proponemos un \textbf{nuevo punto de vista sobre el problema de la multiplicidad}. En muchos
+problemas de multiplicidad debe tenerse en cuenta el número de rechazos erróneos y no solo la cuestión de
+si se cometió algún error. Sin embargo, al mismo tiempo, la gravedad de la pérdida incurrida por rechazos
+erróneos está inversamente relacionada con el número de hipótesis rechazadas.
+
+\section{Diapositiva antes del procedimiento.}
+Los procedimientos que garantizan el control de la FDR serán menos conservadores que los procedimientos que controlan la FWER. Esta propiedad resulta ser deseable pues, como se explicó en la Sección 2.1.4 el control de la FWER, en especial para los casos en los que $m$ es suficientemente grande, se vuelve poco práctico pues causa que el número de errores de tipo II se incremente de manera considerable.
+
+\section{Potencia}
+Otra característica muy importante de la FDR, es que son más potentes que los procedimientos existentes para controlar la FWER, ya que usan niveles de significación mayores para los test individuales, lo que repercute en una mayor probabilidad de error de tipo I y una menor probabilidad de error de tipo II y por tanto, en una mayor potencia para cada test individual.
+
+\section{Desventajas del BH}
+Cabe aclarar que una de las principales desventajas potenciales del algoritmo B$-$H tal y como se
+propuso en Benjamini and Hochberg [1995] yace en el supuesto de independencia entre las m hipótesis
+requerido para asegurar el control de la F DR. En respuesta a esa situación Benjamini and Yekutieli
+[2001] demuestran que el procedimiento B$-$H también puede ofrecer control de la F DR para los casos
+en los cuales las hipótesis están positivamente correlacionadas, como es el caso en una gran variedad de aplicaciones como en Génetica y Ecología. Para los casos en los que las hipótesis están negativamente
+correlacionadas o presentan una estructura de dependencia más compleja Benjamini and Yekutieli [2001]
+proponen reemplazar $m$ en (2.20).
+
+\section{Contexto del primer problema.}
+Se ha demostrado que la trombólisis con activador de plasminógeno de tipo tisular recombinante ($rt-PA)$ y activador de estreptoquinasa de plasminógeno anisoilado (APSAC) en el infarto de miocardio reduce la mortalidad. Neuhaus y col. (1992) investigaron los efectos de una nueva administración de carga frontal de rt$-$PA versus los obtenidos con un régimen estándar de APSAC. El estudio se pueden identificar cuatro familias de hipótesis, pero la que puede ser deseable el control de FDR ya que no se quiere concluir que el tratamiento de carga frontal sea mejor si es simplemente equivalente al tratamiento anterior en todos los aspectos es en las pruebas: en eventos cardíacos y de otro tipo después del inicio del tratamiento trombolítico (15 hipótesis).
+
+\section{Contexto segundo problema.}
+En este ejemplo, se realizó un análisis de las masas en imágenes de resonancia magnética (RM) extraídas de la iniciativa de datos abiertos de la serie de acceso abierto de estudios de imágenes (OASIS). Estos datos contienen imágenes ponderadas en T1 de 416 participantes con y sin demencia de entre 18 y 96 años, lo que permite investigar cómo la edad y las enfermedades relacionadas \textbf{con la edad influyen en la morfología cerebral}.\\
+
+Para descargar el conjunto de datos de OASIS, visite $http://www.oasis-brains.org/\#data$ y elija el lanzamiento OASIS-1, que contiene imágenes de resonancia magnética (MR) de 416 participantes de entre 18 y 96 años. El archivo de información del participante incluye variables demográficas básicas (edad, género, mano de obra, nivel educativo, estatus socioeconómico), variables clínicas y estimaciones de volumen cerebral. 
+
+El objetivo del estudio fue determinar que partes del cerebro están relacionadas de su edad. Para probar este hecho se considero calcular los coeficientes de correlación Spearman  entre el grosor cortical y la edad en cada vóxel cortical, y se consideraron 163810 pruebas de la siguiente forma
+\begin{align*}
+H_{0i}: \rho_s =0 \ \ \ vs \ \ \ H_{0i}:\rho_s\neq 0, \ \ \forall i=1,\cdots, 163810.
+\end{align*}
+donde $\rho_s=1-\frac{6\sum d_i^2}{n(n^2-1)}$ y $d_i=rg(X_i)-rg(Y_i)$ es la diferencia de los rangos de cada observación. Se puede probar que si $n$ es grande entonces (basado en un argumento de permutación) 
+$$\rho_s\sqrt{\frac{n-2}{1-\rho_s^2}} \sim t_{n-2}$$.
+Por lo que es sencillo probar significancia con lo anterior. Por lo tanto, considerando lo anterior procedió a calcular los p$-$values de cada juego de hipótesis. Y posterior se le aplicaron las correcciones de Sidák para controlar el family$-$wise error rate (FWER), y el procedimiento BH para controlar la FDR. 
+
+\section{Positive false dicovery rate}
+En relación a la pFDR, Storey en [77] mostró que esta tiene la siguiente interpretación
+bayesiana: “la probabilidad a posteriori que una hipótesis nula sea verdadera dado que esta
+ha sido rechazada”. Esta interpretación es muy interesante, ya que conecta al enfoque fre-
+cuentista y bayesiano, en el contexto de los test de hipótesis múltiples.
+\end{document}
