@@ -78,8 +78,11 @@
 \textit{Reporte FDR: Enrique Santibáñez Cortés}
 \end{tabular}
 \end{table}
-\section*{False Discovery Rate}
-La tasa de falsos descubrimiento (FDR), fue propuesto por primera en . La propuesta de Benjamini and Hochberg [1995] se colocó como una de las piezas clave en la investigación relacionada con FDR. Lo anterior debido a que, hasta antes de dicha publicación, la mayor parte de la inferencia relacionada con PHM se hacía fundamentalmente con base en métodos relacionados con el control de FWER, o bien técnicas similares derivadas de modificaciones a la misma. Consiste de la proporción esperada de errores entre la hipótesis rechazadas. Formalmente, si definimos la variable aleatoria $Q$ como:
+\section{False Discovery Rate}
+La tasa de falsos descubrimiento (FDR) fue propuesto por primera en Benjamini and Hochberg [1995], la cual se colocó como una de las piezas clave en la investigación relacionada con FDR. Lo anterior debido a que, hasta antes de dicha publicación, la mayor parte de la inferencia relacionada con PHM se hacía fundamentalmente con base en métodos relacionados con el control de FWER, o bien técnicas similares derivadas de modificaciones a la misma. FWER posee desventajas importantes que con el surgimiento de conjuntos de datos de mayor tamaño, por ejemplo en el contexto de genética, se hicieron más evidentes.\\
+Esta tasa cambió el panorama de los test de hipótesis multiples, ya que incentivó el desarrollo de numerosas nuevas investigaciones centradas tanto en la búsqueda de nuevas tasas de error derivadas de (\ref{e_fdr}), así como de procedimientos alternativos, al propuesto por BH, para controlar la FDR.\\
+
+La $FDR$  la proporción esperada de errores entre la hipótesis rechazadas. Formalmente, si definimos la variable aleatoria $Q$ como:
 \begin{align} \label{e_fdr}
 Q=\left\{ \begin{array}{cc}
 V/R & R>0\\
@@ -90,17 +93,15 @@ Entonces, se tiene que
 \begin{align*}
 FDR = \mE(Q)=\mE\left( \frac{V}{V+S}\right)=\mE\left( \frac{V}{R} \right).
 \end{align*}
-Pero como esta definido $Q$ tenemos que 
+Por como esta definido $Q$, tenemos que 
 \begin{align}\label{igudaldad_Q}
 FDR=\mE\left( \frac{V}{R} \right) &= \mE\left( \frac{V}{R}\left| R>0\right. \right)\mP(R>0)+\mE\left( \frac{V}{R}\left| R=0\right. \right)\mP(R=0)\\
 &= \mE\left( \frac{V}{R}\left| R>0\right. \right)\mP(R>0).
 \end{align}
-
-Antes de la públicación de Benjamini, la mayor parte de la inferencia relacionada con PHM se hacía fundamentalmente con base en métodos relacionados con el control de FWER, o bien técnicas similares derivadas de modificaciones a la misma. FWER posee desventajas importantes que con el surgimiento de conjuntos de datos de mayor tamaño, por ejemplo en el contexto de genética, se hicieron más evidentes.\\
-Esta tasa cambió el panorama de los test de hipótesis multiples, ya que incentivó el desarrollo de numerosas nuevas investigaciones centradas tanto en la búsqueda de nuevas tasas de error derivadas de (\ref{e_fdr}), así como de procedimientos alternativos, al propuesto por BH, para controlar la FDR. Algunas propiedades de esta tasa 
+La tasa $FDR$ tiene propiedades que se relaciona con la tasa $FWER$, algunas son
 \begin{enumerate}
 \item Si todas las hipótesis nulas son verdaderas, entonces controlar la FDR es equivalente a controlar la FWER. \\
-\textbf{Demostración.} Si todas las hipótesis nulas son verdaderas entonces $V=R$. Si $V=0$ entonces $\frac{V}{R}=0$ y si $V>0$ entonces $\frac{V}{R}=0$, por lo que (utilizando el resultado de (\ref{igudaldad_Q}))
+\textbf{Demostración.} Si todas las hipótesis nulas son verdaderas entonces $V=R$. Si $V=0$ entonces $\frac{V}{R}=0$ y si $V>0$ entonces $\frac{V}{R}=1$, por lo que (utilizando el resultado de (\ref{igudaldad_Q}))
 \begin{align*}
 FDR &= \mE\left( \frac{V}{R}\left| V=0\right. \right)\mP(V=0)+\mE\left( \frac{V}{R}\left| V>0\right. \right)\mP(V>0)\\
 &=0\times \mP(V=0)+1\times \mP(V\geq 1)\\
@@ -108,7 +109,7 @@ FDR &= \mE\left( \frac{V}{R}\left| V=0\right. \right)\mP(V=0)+\mE\left( \frac{V}
 &= FWER.\ \ \finf
 \end{align*}
 
-\item  Por lo tanto, si controlamos el FDR (es decir, lo mantenemos por debajo de algún valor), entonces estamos controlando el FWER en el sentido débil. \\
+\item  Si controlamos el FDR (es decir, lo mantenemos por debajo de algún valor), entonces estamos controlando el FWER en el sentido débil. \\
 \textbf{Demostración.} Si no todas las hipótesis nulas son verdaderas, entonces $V<R$ y  $\frac{V}{R}<1$, y esto implica que $\mE\left( \frac{V}{R} |V\geq 1\right)<1$. Ocupando lo anterior tenemos
 \begin{align*}
 FDR&= \mE\left( \frac{V}{R}\left| V=0\right. \right)\mP(V=0)+\mE\left( \frac{V}{R}\left| V\geq 1\right. \right)\mP(V\geq 1)\\
@@ -117,9 +118,7 @@ FDR&= \mE\left( \frac{V}{R}\left| V=0\right. \right)\mP(V=0)+\mE\left( \frac{V}{
 \end{align*}
 
 \end{enumerate}
-Para mostr punto 1como  El punto 2 es el más interesante, pues significa que cualquier procedimiento que controle la FWER también controla la FDR, pero no necesariamente al revés. 
-
-
+El punto 2 es el más interesante, pues significa que cualquier procedimiento que controle la FWER también controla la FDR, pero no necesariamente al revés. Decimos por tanto que los procedimientos para el control FWER resultan ser más conservativos, en el sentido de que rechazan en promedio un menor número de hipótesis, que los procedimientos que controlan a FDR. 
 \subsection{Procedimiento de control de la FDR de Benjamini y Hochberg(B-H))}
 Considere la pruebas $H_1, H_2, ..., H_m$, basado en los p$-$values correspondientes $P_{(1)}, P_{(2)},..., P_{(m)}$. Sean $P_{(1)}\leq P_{(2)}\leq \cdots \leq  P_{(m)}$ los p$-$values están ordenados y denotar por la hipótesis nula $H_{(i)}$ correspondiente a $P_{(i)}$. Defina el siguiente procedimiento de prueba múltiple de Bonferroni$-$type:\\
 \begin{align}
@@ -186,8 +185,6 @@ Considerando la desigualdad (\ref{final}) depende de $p$, pero no del segmento $
 
 Cabe aclarar que una de las principales desventajas potenciales del algoritmo B-H tal y como se propuso en Benjamini and Hochberg [1995] yace en el supuesto de independencia entre las m hipótesis requerido para asegurar el control de la FDR. En respuesta a esa situación Benjamini and Yekutieli [2001] demuestran que el procedimiento B-H también puede ofrecer control de la FDR para los casos en los cuales las hipótesis están positivamente correlacionadas, como es el caso en una gran variedad de aplicaciones como en Génetica y Ecología. 
 
-
-
 \subsection{Ejemplos de control}
 
 \subsubsection*{Comparación de la FDR y FWER}
@@ -197,13 +194,12 @@ Los p$-$values individuales se informan tal como están, sin advertencia alguna 
 
 ''\textit{En comparación con el tratamiento con APSAC, a pesar de más reoclusiones tempranas, el curso clínico con el tratamiento con rt-PA es más favorable con menos complicaciones hemorrágicas y una tasa de mortalidad hospitalaria sustancialmente más baja, presumiblemente debido a una mejor permeabilidad temprana de la arteria relacionada con el infarto}''.\\
 
-La afirmación sobre la mortalidad se basa en un valor de p de 0,0095.\\
-Considere ahora la cuarta familia, que contiene la comparación de mortalidad y otras 14 comparaciones. Las posiciones ordenadas para las 15 comparaciones realizadas son \begin{align*}
+La afirmación sobre la mortalidad se basa en un valor de p de 0,0095.\\ Considere ahora la cuarta familia, que contiene la comparación de mortalidad y otras 14 comparaciones. Las posiciones ordenadas para las 15 comparaciones realizadas son \begin{align*}
 0001, 0,0004, 0,0019, 0,0095, 0,0201, 0,0278, 0,0298,\\ 0,0344, 0.0459, 0.3240, 0.4262, 0.5719, 0.6528, 0.7590, 1.000.
 \end{align*}
-Controlando el FWER en 0.05, el enfoque de Bonferroni, usando $0.05 / 15 = 0.0033$ rechazamos las tres hipótesis correspondientes a los valores $p$ más pequeños. Y usando el procedimiento de control de FDR considerando el enfoque $BH$ con $q^* = 0.05$ rechazamos las cuatro hipótesis que tienen valores $p$ menores o iguales a $0.013$.
+Controlando el FWER en 0.05, el enfoque de Bonferroni, usando $0.05 / 15 = 0.0033$ rechazamos las tres hipótesis correspondientes a los valores $p$ más pequeños (ver cuadro \ref{t_p_ejecicio}). Y usando el procedimiento de control de FDR considerando el enfoque $BH$ con $q^* = 0.05$ rechazamos las cuatro hipótesis que tienen valores $p$ menores o iguales a $0.013$.
 
-\begin{table}[H]
+\begin{table}[H] \label{t_p_ejecicio}
 \begin{tabular}{ccccccccccc}
 \hline
 \hline
@@ -228,23 +224,45 @@ $H_{0i}$ & p$-$values & i &  Umbral BH & Umbral Bonferroni & Rechazo BH& Rechazo
 \hline
 \hline
 \end{tabular}
+\caption{Resultados de los p$-$values.}
 \end{table}
 
-Las primeras tres hipótesis corresponden a una reacción alérgica reducida y a dos aspectos diferentes del sangrado; no incluyen la comparación de mortalidad. Por tanto, la afirmación sobre una reducción significativa de la mortalidad no está justificada desde el punto de vista clásico. Pero controlando el FDR rechazamos la hipótesis 4,  ahora con la confianza apropiada las afirmaciones sobre la disminución de la mortalidad, de las que antes no teníamos pruebas suficientemente sólidas.
+Las primeras tres hipótesis corresponden a una reacción alérgica reducida y a dos aspectos diferentes del sangrado; no incluyen la comparación de mortalidad. Por tanto, la afirmación sobre una reducción significativa de la mortalidad no está justificada desde el punto de vista clásico. Pero controlando el FDR rechazamos la hipótesis 4,  ahora con la confianza apropiada las afirmaciones sobre la disminución de la mortalidad, de las que antes no teníamos pruebas suficientemente sólidas.\\
 
-\subsubsection*{Comparación de la potencia de FDR y FWER}
+En la figura  (\ref{comparacion_métodos}) observamos los umbrales rechazar la hipótesis nula  para las distintas metodologías. Se observa claramente que las metodologías para controlar el $FWER$ resultan más conservativas ya que tiene un umbral muy pequeño para rechazo, en cambio si se controla el $FDR$ el umbral es 0.5.
 
-
-\subsection*{The q value }
-\textit{Optional.}
+\begin{figure}[H]
+\centering \label{comparacion_métodos}
+\includegraphics[scale=.5]{comparacion_de_metodos.png}
+\caption{Comparación del valor del Umbral de rechazo}
+\end{figure}
 
 \subsection*{Aplicación del FDR en la ciencia de datos}
-\begin{itemize}
-\item FDR en la selección del modelo.
-\item FDR en data mining.
-\item FDR universo.
-\end{itemize}
+\subsubsection*{Análisis de ejemplo: Enfermedades relacionadas con la edad influyen en la morfología cerebral}
 
+En este ejemplo, se realizó un análisis de las masas en imágenes de resonancia magnética (RM) extraídas de la iniciativa de datos abiertos de la serie de acceso abierto de estudios de imágenes (OASIS). Estos datos contienen imágenes ponderadas en T1 de 416 participantes con y sin demencia de entre 18 y 96 años, lo que permite investigar cómo la edad y las enfermedades relacionadas \textbf{con la edad influyen en la morfología cerebral}.\\
 
+Para descargar el conjunto de datos de OASIS, visite $http://www.oasis-brains.org/\#data$ y elija el lanzamiento OASIS-1, que contiene imágenes de resonancia magnética (MR) de 416 participantes de entre 18 y 96 años. El archivo de información del participante incluye variables demográficas básicas (edad, género, mano de obra, nivel educativo, estatus socioeconómico), variables clínicas y estimaciones de volumen cerebral. 
+
+El objetivo del estudio fue determinar que partes del cerebro están relacionadas de su edad. Para probar este hecho se considero calcular los coeficientes de correlación Spearman  entre el grosor cortical y la edad en cada vóxel cortical, y se consideraron 163810 pruebas de la siguiente forma
+\begin{align*}
+H_{0i}: \rho_s =0 \ \ \ vs \ \ \ H_{0i}:\rho_s\neq 0, \ \ \forall i=1,\cdots, 163810.
+\end{align*}
+donde $\rho_s=1-\frac{6\sum d_i^2}{n(n^2-1)}$ y $d_i=rg(X_i)-rg(Y_i)$ es la diferencia de los rangos de cada observación. Se puede probar que si $n$ es grande entonces (basado en un argumento de permutación) 
+$$\rho_s\sqrt{\frac{n-2}{1-\rho_s^2}} \sim t_{n-2}$$.
+Por lo que es sencillo probar significancia con lo anterior. Por lo tanto, considerando lo anterior procedió a calcular los p$-$values de cada juego de hipótesis. Y posterior se le aplicaron las correcciones de Sidák para controlar el family$-$wise error rate (FWER), y el procedimiento BH para controlar la FDR. 
+\begin{figure}[H]
+\centering \label{cerebro}
+\includegraphics[scale=.5]{neurociencia_FDR_FWER.png}
+\caption{Diferencias cuando se controla el FWER y el FDR.}
+\end{figure}
+Un total del $55\%$ de los vóxel mostró un efecto estadísticamente significativo del envejecimiento sobre el grosor cortical cuando los valores p se corrigieron para múltiples pruebas usando la corrección de Sidak. Por el contrario, cuando la corrección se basó en el procedimiento Benjamini-Hochberg FDR, el número de vértices significativos fue del $82\%$, lo que sugiere un efecto más generalizado. El nivel crítico sin corregir se fijó en $\alpha = 0.05$ en ambos análisis.
+Los resultados se muestran en la figura (\ref{cerebro}), lo cuál podemos concluir que algunos de los mayores efectos relacionados con la edad se observan en el surco central.
+\subsubsection*{FDR en la selección del modelo.}
+La selección hacia adelante es un tipo de regresión por pasos que comienza con un modelo vacío y agrega variables una por una. En cada paso hacia adelante, agrega la variable que brinda la mejor mejora individual a su modelo.
+
+\subsubsection*{Controling the False-Discovery Rate in Astrophysical Data Analysis.} 
+
+'\textit{El propósito de este artículo es presentar el procedimiento FDR a la comunidad astrofísica. Ilustramos el poder de FDR a través de varios ejemplos astronómicos, incluida la detección de características frente a una función unidimensional suave, por ejemplo, ver las \textit{ondulaciones de bariones} en un espectro de potencia de fluctuaciones de materia y detección de píxeles de origen en datos de imágenes. En esta era de grandes conjuntos de datos y mediciones de alta precisión, FDR proporciona los medios para controlar de manera adaptativa una cantidad cientícamente significativa: la fracción de descubrimientos falsos sobre el total de descubrimientos.}'.
 
 \end{document}
