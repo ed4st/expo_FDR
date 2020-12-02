@@ -1,0 +1,27 @@
+\begin{thebibliography}{1}
+
+\bibitem{Miller}
+Rupert G. Miller~Jr. (auth.).
+\newblock {\em Simultaneous Statistical Inference}.
+\newblock Springer Series in Statistics. Springer-Verlag New York, 2 edition,
+  1981.
+
+\bibitem{Benjamini-2010}
+Yoav Benjamini.
+\newblock Simultaneous and selective inference: Current successes and future
+  challenges.
+\newblock {\em Biometrical Journal}, 52:708--721, 2010.
+
+\bibitem{BH}
+Yoav Benjamini and Yosef Hochberg.
+\newblock Controlling the false discovery rate: A practical and powerful
+  approach to multiple testing.
+\newblock {\em Journal of the Royal Statistical Society Series B
+  (Methodological)}, 57:289--300, 1995.
+
+\bibitem{Sandrine}
+Mark J. van der~Laan Sandrine~Dudoit.
+\newblock {\em Multiple testing procedures with applications to genomics}.
+\newblock Springer series in statistics. Springer, 1 edition, 2008.
+
+\end{thebibliography}

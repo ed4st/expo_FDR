@@ -27,10 +27,10 @@
 \section{Introducción}
 Parte del estudio dela inferencia estadística está relacionada con el cuestionamiento del espacio de parámetros que estimamos a través de los datos. Es así, como la formalización de una pregunta se vuelve conveniente desde el punto de vista teórico, pues nos permite abordar preguntas con el rigor necesario para tomar una desición. Esta formalización puede ser llevada a cabo por procedimientos estadísticos con el fin de juzgar si una propiedad se satisface para una población, con base en lo observado por una muestra de dicha población.
 
-El procedimiento anteriormente nombrado, es conocido como \linebreak \textit{prueba de hipótesis}, y mediante esta teoría, es posible abordar problemas estadísticos, considerando una hipótesis nula y una alternativa, que luego definiremos con más detalle. Extendiendo un poco más este concepto, nos encontramos con la teoría de pruebas de hipótesis múltiples (PHM o MCP por sus siglas en inglés), de la cual, se ha desarrollado mucha investigación, sobretodo en los últimos años, donde ha presentado su auge en trabajos relacionados al de Benjamini y Hochberg (Ver ------).%referencia artículo BH
+El procedimiento anteriormente nombrado, es conocido como \linebreak \textit{prueba de hipótesis}, y mediante esta teoría, es posible abordar problemas estadísticos, considerando una hipótesis nula y una alternativa, que luego definiremos con más detalle. Extendiendo un poco más este concepto, nos encontramos con la teoría de pruebas de hipótesis múltiples (PHM o MCP por sus siglas en inglés), de la cual, se ha desarrollado mucha investigación, sobretodo en los últimos años, donde ha presentado su auge en trabajos relacionados al de Benjamini y Hochberg (Ver por ejemplo \cite{BH}).%referencia artículo BH
 
-El procedimiento se presenta cuando consideramos un conjunto de inferencias de manera simultánea (Ver por ejemplo ----)% Miller, R.G. (1981). Simultaneous Statistical Inference 2nd Ed. Springer Verlag New York. ISBN 978-0-387-90548-8.
- o se infiere un subconjunto de parámetros basados en valores observados (Ver por ejemplo -----);% Benjamini, Y. (2010). "Simultaneous and selective inference: Current successes and future challenges". Biometrical Journal. 52 (6): 708–721. doi:10.1002/bimj.200900299. PMID 21154895.
+El procedimiento se presenta cuando consideramos un conjunto de inferencias de manera simultánea (Ver por ejemplo \cite{Miller})% Miller, R.G. (1981). Simultaneous Statistical Inference 2nd Ed. Springer Verlag New York. ISBN 978-0-387-90548-8.
+ o se infiere un subconjunto de parámetros basados en valores observados (Ver por ejemplo \cite{Benjamini-2010});% Benjamini, Y. (2010). "Simultaneous and selective inference: Current successes and future challenges". Biometrical Journal. 52 (6): 708–721. doi:10.1002/bimj.200900299. PMID 21154895.
  procedimiento que presenta algunos inconvenientes entre más inferencias son hechas, ya que es más probable realizar una inferencia errónea. Sin embargo, técnicas han sido desarrolladas con el fin de prevenir esto, permitiendo comparar niveles de significancia para una y más pruebas de manera directa. Estas técnicas generalmente requieren de un umbral de significancia más estricto para pruebas individuales, a cambio de poder compensar el umbral general de una prueba múltiple.
  	
  \section{Formalización}
@@ -162,7 +162,7 @@ La razón yace en que no existe un supuesto de
 independencia entre las hipótesis de la colección, de tal manera que, es posible que puedan existir al
 menos un par de ı́ndices $i$ y $j$ tales que el rechazo de $H_{0i}$ podrı́a influir (positiva o negativamente) en las
 posibilidades del rechazo de $H_{0j}$. La falta de independencia es, de hecho, un escenario frecuente en la
-práctica, por ejemplo, en problemas relacionados con genética (Ver por ejemplo -----%referencia libro recomendado por los profesores
+práctica, por ejemplo, en problemas relacionados con genética (Ver por ejemplo \cite{Sandrine}%referencia libro recomendado por los profesores
 ) y finanzas, donde existen conjuntos masivos
 de datos altamente correlacionados. Muchos de los procedimientos clásicos dentro de la metodologı́a de
 comparaciones múltiples requieren el supuesto de independencia entre las hipótesis. Sin embargo, se han desarrollado métodos  que realizan modificaciones a los procedimientos, que resultan ser robustos en su implementación.
@@ -400,4 +400,8 @@ Esta prueba tiene como objetivo probar la hipótesis nula de la igualdad de $\bo
 	\item Regla de decisión:	$\mathrm{RH}_{0}, \text{ si } \chi_{p}^{2}>\chi_{c r}^{2}$.
 	\item Conclusión: también puede recurrir a el cálculo del $p$-valor.
 \end{enumerate}
+
+\newpage
+\bibliographystyle{plain}
+\bibliography{bibliografia}
 \end{document}
