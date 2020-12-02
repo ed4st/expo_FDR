@@ -68,8 +68,8 @@ A pesar de que el anterior ejemplo nos presenta de manera natural el surgimiento
 ellos aumentará el otro, como se especifica a continuación:
 
 \begin{align*}
-	&P(\textit{error tipo I})\to0\quad \Longrightarrow \quad P(\textit{error tipo II} )\to 1\\
-	&P(\textit{error tipo II})\to0 \quad\Longrightarrow \quad P(\textit{error tipo I} )\to 1
+	&P(\textit{error tipo I })\to0\quad \Longrightarrow \quad P(\textit{error tipo II} )\to 1\\
+	&P(\textit{error tipo II})\to0 \quad\Longrightarrow \quad P(\textit{error tipo I } )\to 1
 \end{align*}
 
 En la mayoría de problemas donde se trabaja con pruebas de hipótesis, nos interesamos en disminuir el error tipo I ya que se presenta con mayor prioridad generalmente; razón por la cual, es conveniente controlarlo. Dado que en la práctica, llevar este error a 0 resulta poco práctico, establecemos una cota superior para la cual este puede ser encontrado. Dicha cota se conoce como \textit{nivel de significancia} y se denota con la letra $\alpha$.  Una vez se asegura que un procedimiento de prueba de hipótesis cumple con un nivel de significancia fijo, es de interés controlar el error tipo II y el proceso de control de este error son conocidas como \textit{Pruebas Uniformemente Potentes}, cuyos detaller técnicos pueden ser revisados en Casella and Berger (2008).
@@ -88,6 +88,7 @@ general se hace con base en el contexto. El estadı́stico de prueba escogido de
 información de la muestra y sea capaz de dar evidencia, mediante una distribución de probabilidad
 definida, en contra de la hipótesis nula que pueda ser cuantificada. Generamente lo denotamos por $T$.
 
+dasdad
 
 \textbf{Región de Rechazo (C): } Región del espacio muestral, i.e. el conjunto de valores que puede
 tomar el estadı́stico de prueba $T$ , para los cuales se rechaza la hipótesis nula. En otras palabras,
@@ -129,11 +130,11 @@ depende de la distribución del estadı́stico $T$, bajo el supuesto de que $H_0
 	p=P(T>T_{obs}|\theta\in\Theta_0),
 \end{equation*}
 con $T_{obs}$ el valor especı́fico de $T$ observado en el experimento.
+
 Siendo así, los pasos resumidos para realizar una prueba de hipótesis general, están dados por:
 \begin{enumerate}[I]
 	\item Plantear la hipótesis nula y la hipótesis alternativa.
-	\item Seleccionar un nivel de significancia $\alpha$. El umbral probabilı́stico bajo el cual la hipótesis será re-
-	chazada.
+	\item Seleccionar un nivel de significancia $\alpha$. El umbral probabilı́stico bajo el cual la hipótesis será rechazada.
 	\item Realizar el proceso de muestreo.
 	\item Elegir la estadı́stica de prueba adecuada $T$.
 	\item Encontrar la distribución de $T$ bajo la hipótesis nula.
@@ -143,7 +144,7 @@ Siendo así, los pasos resumidos para realizar una prueba de hipótesis general,
 	de prueba al menos tan extremo como $T_{obs}$.
 	\item Decidir si rechazar o no $H_0$ con base en la región $C$ especificada en el paso (VI). Alternativamente, rechazar $H_0$ si el $p$-valor obtenido es lo suficientemente pequeño de acuerdo con el nivel de significancia previamente especificado.
 \end{enumerate}
-Teniendo así el panorama de una hipótesis simple, cabe preguntarse por un caso más realista, donde generalmente nos hacemos más de una pregunta como objeto de estudio de alguna investigación y como resultado, tenemos un conjunto de $m>1$ hipótesis a evaluar. Es aquí donde introducimos el procedimiento de comparación múltiple.
+Teniendo así el panorama de una hipótesis simple, cabe preguntarse por un caso más realista, donde generalmente nos hacemos más de una pregunta como objeto de estudio de alguna investigación ,y como resultado, tenemos un conjunto de $m>1$ hipótesis a evaluar. Es aquí donde introducimos el procedimiento de comparación múltiple.
 
 \subsection{Procedimiento de Comparaciones Múltiples}
 Mencionamos antes, que generalmente la mayoría de estudios tienen por objeto el planteamiento de más de una hipótesis, así, es posible juzgar acerca de un determinado número $m>1$ de hipótesis nulas $H_{01},\dots,H_{0m}$. Luego, es pertinente la realización de un procedimiento que nos permita evaluar la veracidad de una hipótesis general, dadas las hipótesis nulas. Generalmente a estos procedimientos se les conoce como \textit{Procedimiento de Comparaciones Múltiples} o \textit{Prueba de Hipótesis Múltiple}.
@@ -181,7 +182,8 @@ ilustra en el siguiente ejemplo:
 		esperarı́a que observar un resultado como éste al lanzar 100 monedas justas fuera un evento igual de
 		raro; sin embargo, lo cierto es que observar al menos una de las 100 monedas comportarse de esa manera
 		es un evento muy probable, incluso en el caso en que todas sean justas. En efecto, la probabilidad de
-		que en 100 experimentos con monedas justas, al menos una muestre 9 o más caras en 10 lanzamientosestá dada por	
+		que en 100 experimentos con monedas justas, al menos una muestre 9 o más caras en 10 lanzamientos
+está dada por	
 		$1 - (1 - 0,0107)^{100}= 0.6604$, por lo que, aplicar el el criterio anterior para probar la hipótesis de que
 		las 100 monedas son justas constituiría un error importante.
 \end{ej}
@@ -190,7 +192,8 @@ incrementa, la noción de error se complica de manera creciente. Por ejemplo, si
 hace a un $5\%$ de confianza, afirmamos que existe un $95\%$ de probabilidad de que la hipótesis nula sea
 rechazada incorrectamente. Sin embargo, si se realizan m = 100 pruebas de hipótesis simultáneamente,
 donde todas son ciertas, el número esperado de rechazos incorrectos es 5, mientras que, si las pruebas son
-independientes, la probabilidad de rechazar al menos una hipótesis incorrectamente es de $1 - (0,05)^{100} =0,994$. Así, conforme m, el número de hipótesis en prueba, se hace grande, dicha
+independientes, la probabilidad de rechazar al menos una hipótesis incorrectamente es de $1 - (0,05)^{100} =
+0,994$. Así, conforme m, el número de hipótesis en prueba, se hace grande, dicha
 probabilidad se acerca a uno sin importar el nivel de significancia en consideración. En este contexto,
 el error de rechazar una hipótesis nula que es cierta se conoce comúnmente como \textit{falso positivo} o error
 de tipo I como en el caso de las pruebas de hipótesis simples. Existen en la literatura distintas técnicas
@@ -253,7 +256,7 @@ Q=\left\{\begin{array}{ll}
 \end{array}\right.
 $$
 
-\section{Procedimientos de Control}
+\section{Procedimientos de Control del FWER}
 Si suponemos que FWER$\leq\alpha$, decimos que 	la probabilidad de cometer un error tipo I está controlada por un nivel $\alpha$.
 Un proceso controla el FWER \textit{débilmente} si el control del FWER a un nivel $\alpha$, es garantizado sólo cuando todas las hipótesis  nulas son ciertas. Esto es, cuando $m_0=m$, esto implica que la hipótesis general $H_0$ es cierta. Por otro lado, decimos que un procedimiento controla \textit{fuertemente}, si el control del FWER a un nivel $\alpha$ independientemente de la configuración de hipótesis falsas o verdaderas.
 
@@ -262,11 +265,139 @@ Algunos de los procedimientos recientes contolan fuertemente el FWER. Presentamo
 \textbf{Procedimiento de Bonferroni:} 
 Sea $\{H_{01},\dots,H_{0m}\}$ una familia de hipótesis; sea $p_i$ el $p$-valor correspondiente a la hipótesis $H_{0i}$. Procedemos a rechazar la hipótesis $H_{0i}$, si $p_i\leq\frac{\alpha}{m}$. El control puede ser probado a través de la \textit{desigualdad de Boole:}
 $$\mathrm{FWER}=P\left\{\bigcup_{i=1}^{m_{0}}\left(p_{i} \leq \frac{\alpha}{m}\right)\right\} \leq \sum_{i=1}^{m_{0}}\left\{P\left(p_{i} \leq \frac{\alpha}{m}\right)\right\}=m_{0} \frac{\alpha}{m} \leq m \frac{\alpha}{m}=\alpha.$$
+\begin{ej}
+	En el estudio de un taller, se obtuvo un conjunto de datos para determinar si la proporción de artículos defectuosos producidos por los trabajadores era la misma durante el dia, la tarde o la noche. Se encontraron los
+	siguientes datos:
+	\begin{center}
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline & \multicolumn{4}{|c|} { TURNO } \\
+		\hline Estado artículo & Día & Tarde & Noche & Total \\
+		\hline Defectuosos & 45 & 55 & 70 & 170 \\
+		\hline No defectuosos & 905 & 890 & 870 & 2665 \\
+		\hline Total & 950 & 945 & 940 & 2835 \\
+		\hline
+	\end{tabular}	
+	\end{center}
+	
+	Usamos un nivel de significancia de $5 \%$ para determinar si la proporción de artículos defectuosos es la misma para	los tres turnos, adicionalmente, usamos el pricedimiento explicado en el Anexo \ref{anexo}:
+	
+	\begin{enumerate}[I]
+		\item Planteamiento de hipótesis:
+		\begin{align*}
+			&\mathrm{H}_{0}: \pi_{D}=\pi_{T}=\pi_{N}\\
+			&\mathrm{H}_{1}: \text{las proporciones poblacionales no son todas iguales}
+		\end{align*}
 
+		\item  Establecer el nivel de significancia: $\alpha=5 \% \rightarrow$ error tipo $I$
+		\item Estadistico de prueba: el estadístico de prueba ji-cuadrada que se utiliza para este tipo de prueba de hipótesis, corresponde a la expresión:
+		$$
+		\chi_{p}^{2}=\sum \frac{(f_o-f_e)^{2}}{f_e},
+		$$
+		Así:
+		\begin{center}
+		\begin{tabular}{|l|c|c|c|c|}
+			\hline & \multicolumn{4}{|c|} { TURNO ($f_o$) } \\
+			\hline Estado artículo & Día & Tarde & Noche & Total \\
+			\hline Defectuosos & 45 & 55 & 70 & 170 \\
+			\hline No defectuosos & 905 & 890 & 870 & 2665 \\
+			\hline Total & 950 & 945 & 940 & 2835 \\
+			\hline
+		\end{tabular}			
+		\end{center}
+		
+		\begin{center}
+		\begin{tabular}{|l|c|c|c|c|}
+			\hline & \multicolumn{4}{|c|} { TURNO ($f_e$) } \\
+			\hline Estado artículo & Día & Tarde & Noche & Total \\
+			\hline Defectuosos & $(170 \cdot 950) / 2835$ & $(170 \cdot 945) / 2835$ & $(170 \cdot 940) / 2835$ & 170 \\
+			& 56.9 & 56.6 & 56.36 & \\
+			\hline No defectuosos & $(2665 \cdot 950) / 283$5 & $(2665 \cdot 945) / 283$5 & $\left(2665^{\cdot} 940\right) / 283$5 & 2665 \\
+			& 893.03 & 888.33 & 883.63 & \\
+			\hline Total & 950 & 945 & 940 & 2835\\
+			\hline
+		\end{tabular}	
+		\end{center}
+		
+		$\chi_{p}^{2}=\left[\frac{(45-56.9)^{2}}{56.9}+\frac{(55-56.6)^{2}}{56.6}+\frac{(70-56.36)^{2}}{56.36}+\frac{(905-893.03)^{2}}{893.03}+\frac{(890-888.33)^{2}}{888.33}+\frac{(870-883.63)^{2}}{883.63}\right]=6.29$
+		
+		Adicionalmente:
+		
+		$$
+		\chi_{c r}^{2}=\chi_{((2-1)(3-1), 0.05)}^{2}=5.98
+		$$
+		\item Regla de decisión: rechazamos	$\mathrm{H}_{0}, \text{ si } \chi_{p}^{2}>\chi_{c r}^{2}$.
+		\item Conclusión: rechazamos $\mathrm{H}_{0},$ con $5 \%$ de probabilidad.
+	\end{enumerate}
+Como se Rechaza $H_0$, el paso siguiente es aplicar el procedimiento de comparaciones múltiples. Por tanto, realizamos tres pruebas de hipótesis, para cada uno de los pares a comparar:
+\begin{itemize}
+	\item Prueba 1:
+	\begin{align*}
+		&H_0: \pi_{D}=\pi_{T}\\
+		&{H}_{1}: \pi_{D} \neq \pi_{T}
+	\end{align*}
+	\item Prueba 2:
+	\begin{align*}
+		&H_0: \pi_{D}=\pi_{N}\\
+		&{H}_{1}: \pi_{D} \neq \pi_{N}
+	\end{align*}
+	\item Prueba 3:
+	\begin{align*}
+		&H_0: \pi_{T}=\pi_{N}\\
+		&{H}_{1}: \pi_{T} \neq \pi_{N}
+	\end{align*}
+\end{itemize}
+Luego al aplicar la corrección de Bonferroni, se obtiene $\alpha^{*}=1.7 \%$. Al usar un paquete estadístico (por ejemplo \texttt{R}), se obtuvo los siguientes $p$-valores para cada par:
+\begin{center}
+\begin{tabular}{|l|l|l|}
+	\hline \multicolumn{1}{|c|} {Comparación} & Valor P & Conclusión \\
+	\hline Dia vs. Tarde & 0.8563 & $\mathrm{AH}_{0}$ \\
+	\hline Día vs. Noche & 0.0032 & $\mathrm{RH}_{0}$ \\
+	\hline Tarde vs. Noche & 0.0041 & $\mathrm{RH}_{0}$ \\
+	\hline
+\end{tabular}	
+\end{center}
+Interpretación: la proporción de defectos es similar entre el turno del día y el de la tarde. El turno de la noche difiere significativamente en la proporción de defectos de los demás turnos.
+\end{ej}
 \textbf{Procedimiento de Šidák:} 
 Dadas $m$ hipótesis nulas y un nivel $\alpha$ , cada hipótesis es rechazada si el $p$-valor es menor que $\alpha _{{SID}}=1-(1-\alpha )^{{\frac  {1}{m}}}$.
 Este procedimiento produce un FWER exactamente de $\alpha$ cuando las pruebas son independientes dos a dos y las hipótesis nulas son verdaderas.Es un poco menos conservadora que la de Bonferroni, pero sólo un poco. Por ejemplo, para $\alpha$  = 0.05 y $m$ = 10, el nivel de ajuste por Bonferroni es 0.005 mientras que el ajuste de Šidák es 0.005116 aproximadamente.
 
 \textbf{Procedimiento de Holm-Bonferroni:} 
-
+\begin{enumerate}[I]
+	\item Supongamos que tenemos $m$ $p$-valores, ordenados de menor a mayor: $p_{(1)}, \ldots, p_{(m)}$,y sus respectivas hipótesis: $H_{01}, \ldots, H_{0m}$. Como queremos controlar el FWER, queremos que FWER$\leq\alpha$.
+	\item Evaluamos si $p_{(1)}\leq \frac{\alpha}{m}$. Si \textbf{sí}, rechazamos $H_{01}$ y continuamos con el siguiente paso. Si \textbf{no}, paramos.
+	\item Evaluamos si $p_{(2)}\leq \frac{\alpha}{m-1}$. Si \textbf{sí}, rechazamos $H_{02}$ y continuamos con el siguiente paso. Si \textbf{no}, paramos.
+	\item Así sucesivamente: para cada $p$-valor, verificamos si $p_{(k)}<\frac{\alpha}{m+1-k}$.  Si \textbf{sí}, rechazamos $H_{0k}$ y continuamos con $p$-valores más grandes. Si \textbf{no}, paramos.
+\end{enumerate}
+\section{Anexo: ANOVA - Pruebas de hipótesis para $k$ proporciones}\label{anexo}
+Esta prueba tiene como objetivo probar la hipótesis nula de la igualdad de $\boldsymbol{k}$ proporciones. El procedimiento es el mismo que se utilizó para la prueba de 2 proporciones y el procedimiento consiste en:
+\begin{enumerate}[I]
+	\item Planteamiento de hipótesis
+	$$
+	\begin{array}{l}
+		\mathrm{H}_{0}: \pi_{1}=\pi_{2}=\ldots =\pi_{k} \\
+		\mathrm{H}_{1}: \text{las proporciones poblacionales no son todas iguales}
+	\end{array}
+	$$
+	\item Establecer el nivel de significancia $\alpha$
+	\item Estadístico de prueba: el estadístico de prueba ji-cuadrada que se utiliza
+	para este tipo de prueba de hipótesis, corresponde a la expresión:
+	$$
+	\chi_{p}^{2}=\sum \frac{(f_o-f_e)^{2}}{f_e}
+	$$
+	Con $V=(r-1)(k-1)=k-1$ grados de libertad.
+	Siendo, $r= \#$ renglones y $K=\#$ de poblaciones. 	Para calcular las frecuencias esperadas $f_{e}$, para cada una de las celdas que conforman la tabla de
+	contingencia es
+	$$
+	f e=\frac{f_{r}^{*} f_{k}}{n}
+	$$
+	Donde
+	$f_{r}:$ frecuencia total de un renglón determinado
+	$f_{k}:$ frecuencia total de una columna determinada
+	$n: \quad$ número de observaciones
+	4. 
+	5. 
+	\item Regla de decisión:	$\mathrm{RH}_{0}, \text{ si } \chi_{p}^{2}>\chi_{c r}^{2}$.
+	\item Conclusión: también puede recurrir a el cálculo del $p$-valor.
+\end{enumerate}
 \end{document}
